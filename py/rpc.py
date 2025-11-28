@@ -7,6 +7,8 @@
 
 import json
 import serial
+import time
+
 
 class rpc(object):
     def __init__(self, port_name):
@@ -44,7 +46,6 @@ class rpc(object):
     def __getattr__(self, name):
         trace = attribute_trace(self)
         return trace.__getattr__(name)
-
 
 
 class attribute_trace(object):
@@ -121,14 +122,15 @@ class attribute_trace(object):
                 print("RPC ERROR: OBJECT " + name + " IS UNKNOWN")
                 return False
 
-myrpc = rpc("/dev/cu.usbmodem178477201")
-# myrpc.testValue = 123.4
-import time
 
-while True:
-    print("ENCODER 1: " + str(myrpc.encoder_1.read()))
-    print("ENCODER 2: " + str(myrpc.encoder_2.read()))
-    time.sleep(0.2)
+if __name__ == "__main__":
+    myrpc = rpc("/dev/cu.usbmodem178477201")
+    # myrpc.testValue = 123.4
+
+    while True:
+        print("ENCODER 1: " + str(myrpc.encoder_1.read()))
+        print("ENCODER 2: " + str(myrpc.encoder_2.read()))
+        time.sleep(0.2)
 
 
 # print("PRE-MOVE POSITIONS")
