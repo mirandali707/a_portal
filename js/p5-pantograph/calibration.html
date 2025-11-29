@@ -28,6 +28,13 @@
         text-align: center;
         font-weight: 300;
       }
+      ol {
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        text-align: left;
+        font-weight: 300;
+        line-height: 1.5;
+      }
       a {
         color: #9A1D51;
         text-decoration: none;
@@ -63,19 +70,26 @@
           background-size: 100% 100%;
         }
       }
+      div {
+        max-width: 50%;
+        margin: 0 auto;
+      }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A PORTAL</title>
   </head>
   <body>
-    <h1>A PORTAL</h1>
-    <h3>(Arbitrary PantOgRaph of Time And Light)</h3>
-    <p>
-      This is a project by <a href="https://mirandali707.github.io/" target="_blank">Miranda Li</a>, for <a href="http://zach.li/" target="_blank">Zach Lieberman's</a> class
-      <a href="https://drawingpp.media.mit.edu/" target="_blank">Drawing++</a>.
-      <h2><a href="calibration.html">:: calibrating the PORTAL ::</a></h2>
-      <h2><a href="#">:: simple PORTAL ::</a></h2>
-      <h2><a href="#">:: inter(PORTAL)ation ::</a></h2>
-    </p>
+    <h1>Calibrating the PORTAL</h1>
+    <div>
+      <ol>
+        <li>Make sure encoder ends are **detached** .</li>
+        <li>Run `rotary-pantograph.ino`. Make sure the Serial Monitor is closed.</li>
+        <li>Run `rpc.py`; you should see encoder values being printed.</li>
+        <li>Stretch the end of one wire to the base of the other, and vice versa. Note down the values (the approximate distance the encoders are from each other, in their own units -- this will be the `ENCODER_DIST` constant later.</li>
+        <li>Stop running `rpc.py`.</li>
+        <li>Attach the two encoder ends together.</li>
+        <!-- <li>Run `gesture_tofile.py`; begin the gesture, and then stop the program when the gesture is over.</li> -->
+      </ol>
+    </div>
   </body>
 </html>
