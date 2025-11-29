@@ -4,7 +4,7 @@ import os
 
 OUTDIR = "gestures"
 OUTFILE = f"{OUTDIR}/gesture_{time.strftime('%Y%m%d_%H%M%S')}.csv"
-DELAY = 0.2
+DELAY = 0.1
 
 # Use the classes
 myrpc = rpc("/dev/cu.usbmodem178477201")
