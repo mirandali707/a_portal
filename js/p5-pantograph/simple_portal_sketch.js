@@ -14,11 +14,18 @@ sketch.draw= function(){
   const posX = window.portalPosition?.x || 0;
   const posY = window.portalPosition?.y || 0;
   
+  // Get y-offset from input field
+  const yOffsetInput = document.getElementById("y-offset");
+  const yOffset = parseFloat(yOffsetInput?.value) || 0;
+  
+  // Subtract y-offset from posY
+  const adjustedPosY = posY - yOffset;
+  
   // Map the position to canvas coordinates (adjust scaling as needed)
   // Assuming the encoder positions are in some physical units, 
   // we may need to scale them to fit the canvas
   const canvasX = map(posX, -100, 100, 0, width);
-  const canvasY = map(posY, -100, 100, 0, height);
+  const canvasY = map(adjustedPosY, -100, 100, 0, height);
   
   rect(canvasX, canvasY, 50, 50);
 }
