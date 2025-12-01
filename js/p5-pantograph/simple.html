@@ -27,6 +27,21 @@
     <title>A PORTAL</title>
   </head>
   <body>
+    <script>
+    const ws = new WebSocket("ws://localhost:8765");
+    
+    ws.onmessage = (event) => {
+        console.log("WS MESSAGE:", event.data);
+        const data = JSON.parse(event.data);
+        console.log("Encoder 1:", data.encoder_1);
+        console.log("Encoder 2:", data.encoder_2);
+    
+        // update UI
+        document.getElementById("enc1").innerText = data.encoder_1;
+        document.getElementById("enc2").innerText = data.encoder_2;
+    };
+    </script>
+
     <a id="back-link" href="index.html" style="position: fixed; top: 20px; left: 20px; font-family: 'Macondo Swash Caps', cursive; font-size: 18px; color: #9A1D51; text-decoration: none; z-index: 1000">
       &lt;&nbsp;A&nbsp;PORTAL
     </a>
@@ -36,5 +51,7 @@
         This is a simple PORTAL.
       </p>
     </div>
+    <div>Encoder 1: <span id="enc1"></span></div>
+    <div>Encoder 2: <span id="enc2"></span></div>        
   </body>
 </html>
