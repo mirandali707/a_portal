@@ -12,6 +12,9 @@ function calc_xy(r1, r2) {
     return { x, y };
 }
 
+// Global object to share position data with the sketch
+window.portalPosition = { x: 0, y: 0 };
+
 const ws = new WebSocket("ws://localhost:8765");
 
 ws.onmessage = (event) => {
@@ -24,6 +27,10 @@ ws.onmessage = (event) => {
     const r1 = parseFloat(data.encoder_1);
     const r2 = parseFloat(data.encoder_2);
     const { x, y } = calc_xy(r1, r2);
+    
+    // Update global position for the sketch
+    window.portalPosition.x = x;
+    window.portalPosition.y = y;
     
     // update UI
     document.getElementById("enc1").innerText = data.encoder_1;
