@@ -18,10 +18,9 @@ window.portalPosition = { x: 0, y: 0 };
 const ws = new WebSocket("ws://localhost:8765");
 
 ws.onmessage = (event) => {
-    console.log("WS MESSAGE:", event.data);
     const data = JSON.parse(event.data);
-    console.log("Encoder 1:", data.encoder_1);
-    console.log("Encoder 2:", data.encoder_2);
+    // console.log("Encoder 1:", data.encoder_1);
+    // console.log("Encoder 2:", data.encoder_2);
 
     // Calculate x, y positions
     const r1 = parseFloat(data.encoder_1);

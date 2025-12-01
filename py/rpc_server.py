@@ -8,9 +8,9 @@ myrpc = rpc("/dev/cu.usbmodem178477201")
 
 async def stream_data(websocket):
     while True:
-        encoder_1 = myrpc.encoder_1.read()
-        encoder_2 = myrpc.encoder_2.read()
-        print(f"Encoder 1: {encoder_1}, Encoder 2: {encoder_2}")
+        # encoder_1 = myrpc.encoder_1.read()
+        # encoder_2 = myrpc.encoder_2.read()
+        # print(f"Encoder 1: {encoder_1}, Encoder 2: {encoder_2}")
         data = {
             "encoder_1": myrpc.encoder_1.read(),
             "encoder_2": myrpc.encoder_2.read()
