@@ -1,7 +1,12 @@
-const ENCODER_DIST = 148; // approximate distance between the encoders in their measurement units
+// Get encoder distance from input field
+function getEncoderDist() {
+    const input = document.getElementById("encoder-dist");
+    return parseFloat(input.value) || 148; // default to 148 if invalid
+}
 
 // Calculate x, y position from two encoder radii
 function calc_xy(r1, r2) {
+    const ENCODER_DIST = getEncoderDist();
     const x = (r1 * r1 - r2 * r2) / (2 * ENCODER_DIST);
     const y = Math.sqrt(r1 * r1 - x * x);
     return { x, y };
