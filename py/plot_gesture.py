@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-GESTURE_FILEPATH = "gestures/gesture_20251128_125823.csv"
+GESTURE_FILEPATH = "gestures/star_20251201_234311.csv"
 ENCODER_DIST = 148 # approximate distance between the encoders in their measurement units
 
 # the data is in the format:
@@ -22,7 +22,7 @@ with open(GESTURE_FILEPATH, "r") as f:
     # skip the first line
     next(f)
     for line in f:
-        time, r1, r2 = line.strip().split(",")
+        time, r1, r2, _, _ = line.strip().split(",")
         time = float(time)
         r1 = float(r1)
         r2 = float(r2)
