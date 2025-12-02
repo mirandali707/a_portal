@@ -51,7 +51,7 @@ let sketch1 = new p5( p => {
       }
       
       // Draw the circle at current position
-      p.fill(31, 122, 140);
+      p.fill(50, 115, 246);
       p.noStroke();
       p.circle(canvasX, canvasY, 24);
       // drawingContext.filter = 'blur(6px)';
@@ -110,7 +110,7 @@ let sketch2 = new p5( p => {
       }
       
       // Draw the circle at current position
-      p.fill(31, 122, 140);
+      p.fill(50, 115, 246);
       p.noStroke();
       p.circle(canvasX, canvasY, 24);
       // drawingContext.filter = 'blur(6px)';
@@ -168,7 +168,7 @@ let mainSketch = new p5( p => {
     }
     
     // Draw the circle at current position
-    p.fill(31, 122, 140);
+    p.fill(206, 39, 109);
     p.noStroke();
     p.circle(canvasX, canvasY, 24);
   };

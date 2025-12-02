@@ -49,7 +49,7 @@ sketch.draw= function(){
   }
   
   // Draw the circle at current position
-  fill(31, 122, 140);
+  fill(206, 39, 109);
   noStroke();
   circle(canvasX, canvasY, 24);
   // drawingContext.filter = 'blur(6px)';
