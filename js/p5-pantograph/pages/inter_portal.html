@@ -17,21 +17,6 @@
     </a>
     <h3>inter(PORTAL)ation</h3>
     <div id="main-container">
-      <!-- Buttons row above sketch -->
-      <div id="buttons-row">
-        <div>
-          <button id="record-btn">:: record ::</button>
-          <span id="record-status"></span>
-        </div>
-        <div>
-          <input type="file" id="gesture-file-input" accept=".csv" style="display: none;">
-          <button id="playback-btn">:: playback ::</button>
-          <span id="playback-status"></span>
-        </div>
-        <div>
-          <button id="clear-btn">:: clear ::</button>
-        </div>
-      </div>
       
       <!-- Two side-by-side sketches above main canvas -->
       <div id="sketches-container">
@@ -39,6 +24,17 @@
         <div id="src2" class="soft-wrapper"></div>
       </div>
       
+      <!-- Buttons row above main canvas-->
+      <div id="buttons-row">
+        <div>
+          <button id="record-btn">:: record ::</button>
+          <span id="record-status"></span>
+        </div>
+        <div>
+          <button id="clear-btn">:: clear ::</button>
+        </div>
+      </div>
+
       <!-- Main canvas container -->
       <div id="canvas-container" class="soft-wrapper">
         <!-- p5 canvas will be inserted here -->
@@ -67,7 +63,7 @@
         </div>
       </div>
     </div>
-    <script src="../scripts/simple_portal.js"></script>
-    <script type="module" src="../scripts/simple_portal_sketch.js"></script>
+    <script src="../scripts/inter_portal.js"></script>
+    <script type="module" src="../scripts/inter_portal_sketch.js"></script>
   </body>
 </html>
