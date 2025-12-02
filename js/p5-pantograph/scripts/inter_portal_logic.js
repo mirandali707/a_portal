@@ -4,12 +4,29 @@ function getEncoderDist() {
     return parseFloat(input.value) || 148; // default to 148 if invalid
 }
 
+function getEnc1Slider() {
+    const input = document.getElementById("enc_1");
+    return parseFloat(input.value) || 0; // default to 0 if invalid
+}
+
+function getEnc2Slider() {
+    const input = document.getElementById("enc_2");
+    return parseFloat(input.value) || 0; // default to 0 if invalid
+}
+
 // Calculate x, y position from two encoder radii
 function calc_xy(r1, r2) {
     const ENCODER_DIST = getEncoderDist();
     const x = (r1 * r1 - r2 * r2) / (2 * ENCODER_DIST);
     const y = Math.sqrt(r1 * r1 - x * x);
     return { x, y };
+}
+
+// Interpolate encoders between src1 and src2 according to the slider values
+function interp_encoders(src1_r1, src1_r2, src2_r1, src2_r2) {
+    const interp_r1 = src1_r1 + (getEnc1Slider() / 100) * (src2_r1 - src1_r1);
+    const interp_r2 = src1_r2 + (getEnc2Slider() / 100) * (src2_r2 - src1_r2);
+    return { interp_r1, interp_r2 };
 }
 
 // Global object to share position data with the sketch
