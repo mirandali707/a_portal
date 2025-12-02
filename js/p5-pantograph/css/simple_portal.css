@@ -43,6 +43,19 @@ ol {
   gap: 15px;
 }
 
+/* Container for two side-by-side sketches */
+#sketches-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#sketches-container .soft-wrapper {
+  width: 300px;
+  height: 200px;
+}
+
 /* Canvas container */
 #canvas-container {
   display: flex;

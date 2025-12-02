@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo+Swash+Caps&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/portal.css">
+    <link rel="stylesheet" href="../css/simple_portal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A PORTAL</title>
+  </head>
+  <body>
+    <a id="back-link" href="../index.html">
+      &lt;&nbsp;A&nbsp;PORTAL
+    </a>
+    <h3>inter(PORTAL)ation</h3>
+    <div id="main-container">
+      <!-- Buttons row above sketch -->
+      <div id="buttons-row">
+        <div>
+          <button id="record-btn">:: record ::</button>
+          <span id="record-status"></span>
+        </div>
+        <div>
+          <input type="file" id="gesture-file-input" accept=".csv" style="display: none;">
+          <button id="playback-btn">:: playback ::</button>
+          <span id="playback-status"></span>
+        </div>
+        <div>
+          <button id="clear-btn">:: clear ::</button>
+        </div>
+      </div>
+      
+      <!-- Two side-by-side sketches above main canvas -->
+      <div id="sketches-container">
+        <div id="src1" class="soft-wrapper"></div>
+        <div id="src2" class="soft-wrapper"></div>
+      </div>
+      
+      <!-- Main canvas container -->
+      <div id="canvas-container" class="soft-wrapper">
+        <!-- p5 canvas will be inserted here -->
+      </div>
+      
+      <!-- Bottom section with inputs and values -->
+      <div id="bottom-section">
+        <!-- Left side - input fields -->
+        <div id="inputs-container">
+          <div class="input-group">
+            <label for="encoder-dist">encoder distance:</label>
+            <input type="number" id="encoder-dist" value="148" step="0.1">
+          </div>
+          <div class="input-group">
+            <label for="y-offset">y-offset:</label>
+            <input type="number" id="y-offset" value="80" step="0.1">
+          </div>
+        </div>
+        
+        <!-- Right side - display values -->
+        <div id="values-container">
+          <div class="value-display"><span>enc_1:</span> <span id="enc1"></span></div>
+          <div class="value-display"><span>enc_2:</span> <span id="enc2"></span></div>
+          <div class="value-display"><span>x:</span> <span id="x-pos"></span></div>
+          <div class="value-display"><span>y:</span> <span id="y-pos"></span></div>
+        </div>
+      </div>
+    </div>
+    <script src="../scripts/simple_portal.js"></script>
+    <script type="module" src="../scripts/simple_portal_sketch.js"></script>
+  </body>
+</html>
