@@ -77,3 +77,17 @@
   color: #031927;
   min-height: 16px;
 }
+
+/* Row for playback and clear buttons */
+.playback-buttons-row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Clear button styling for src1 and src2 */
+#clear-btn-src1,
+#clear-btn-src2 {
+  background-color: #031927 !important;
+}
