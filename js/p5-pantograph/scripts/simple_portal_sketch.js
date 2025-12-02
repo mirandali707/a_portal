@@ -3,7 +3,7 @@ import {sketch} from 'p5js-wrapper';
 // Array to store the path positions
 let path = [];
 
-// Function to reset the path (exposed globally for simple_portal.js to call)
+// Function to reset the path (exposed globally for simple_portal_logic.js to call)
 window.resetPath = function() {
   path = [];
 };
@@ -16,7 +16,7 @@ sketch.setup = function(){
 sketch.draw= function(){
   background(255);
   
-  // Get position from simple_portal.js
+  // Get position from simple_portal_logic.js
   const posX = window.portalPosition?.x || 0;
   const posY = window.portalPosition?.y || 0;
   
