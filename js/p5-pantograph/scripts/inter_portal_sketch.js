@@ -119,6 +119,13 @@ let sketch2 = new p5( p => {
 
   
 let mainSketch = new p5( p => {
+  // Array to store the path positions for the interpolated portal
+  let path = [];
+
+  // Function to reset the path (exposed globally for inter_portal_logic.js to call)
+  window.resetPath = function() {
+    path = [];
+  };
 
   p.setup = () => {
     // canvas size is specified in the CSS file (size of div #two)
@@ -127,9 +134,42 @@ let mainSketch = new p5( p => {
   };
 
   p.draw = () => {
-    p.background(170);
+    p.background(255);
+    
+    const posX = window.portalPosition?.x || 0;
+    const posY = window.portalPosition?.y || 0;
+    
+    // Get y-offset from input field
+    const yOffsetInput = document.getElementById("y-offset");
+    const yOffset = parseFloat(yOffsetInput?.value) || 0;
+    
+    // Subtract y-offset from posY
+    const adjustedPosY = posY - yOffset;
+    
+    // Map the position to canvas coordinates (adjust scaling as needed)
+    // Assuming the encoder positions are in some physical units, 
+    // we may need to scale them to fit the canvas
+    const canvasX = p.map(posX, -100, 100, 0, p.width);
+    const canvasY = p.map(adjustedPosY, -100, 100, 0, p.height);
+    
+    // Add current position to path
+    path.push({x: canvasX, y: canvasY});
+    
+    // Draw the path (stroke)
+    if (path.length > 1) {
+      p.stroke(3, 25, 39);
+      p.strokeWeight(5);
+      p.noFill();
+      p.beginShape();
+      for (let i = 0; i < path.length; i++) {
+        p.vertex(path[i].x, path[i].y);
+      }
+      p.endShape();
+    }
+    
+    // Draw the circle at current position
+    p.fill(31, 122, 140);
     p.noStroke();
-    p.fill(255);
-    p.ellipse(50, 50, 50, 50);
+    p.circle(canvasX, canvasY, 24);
   };
 }, 'canvas-container');

@@ -141,7 +141,12 @@ function createPlaybackController(elementIds, options = {}) {
             
             // Update position (either via callback or global)
             if (updatePosition) {
-                updatePosition(x, y);
+                // Pass encoder values if callback accepts them
+                if (updatePosition.length >= 4) {
+                    updatePosition(x, y, frame.encoder_1, frame.encoder_2);
+                } else {
+                    updatePosition(x, y);
+                }
             } else {
                 window.portalPosition.x = x;
                 window.portalPosition.y = y;
