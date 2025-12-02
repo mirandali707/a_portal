@@ -17,10 +17,10 @@ h3 {
 }
 
 p {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   text-align: center;
-  font-weight: 300;
+  /* font-weight: 300; */
 }
 
 a {

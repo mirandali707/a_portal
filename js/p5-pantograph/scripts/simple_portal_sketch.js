@@ -6,10 +6,9 @@ sketch.setup = function(){
 }
 
 sketch.draw= function(){
-  background(100);
-  fill(255, 255, 0);
+  background(255);
+  fill(0,0,0);
   noStroke();
-  rectMode(CENTER);
   
   // Get position from simple_portal.js
   const posX = window.portalPosition?.x || 0;
@@ -28,5 +27,5 @@ sketch.draw= function(){
   const canvasX = map(posX, -100, 100, 0, width);
   const canvasY = map(adjustedPosY, -100, 100, 0, height);
   
-  rect(canvasX, canvasY, 50, 50);
+  circle(canvasX, canvasY, 50);
 }

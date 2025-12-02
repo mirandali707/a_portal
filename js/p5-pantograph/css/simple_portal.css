@@ -1,0 +1,121 @@
+ol {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  text-align: left;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Back link styling - extends portal.css a styles */
+#back-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-family: 'Macondo Swash Caps', cursive;
+  font-size: 18px;
+  z-index: 1000;
+}
+
+#back-link:hover {
+  color: #CE276D !important;
+}
+
+/* Main container to center everything */
+#main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 100vh; */
+}
+
+/* Buttons row above sketch */
+#buttons-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+#buttons-row > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Canvas container */
+#canvas-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Bottom section with inputs and values */
+#bottom-section {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  margin-top: 10px;
+}
+
+/* Left side - input fields */
+#inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* Right side - display values */
+#values-container {
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Input field styling - reuses font-family from portal.css */
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.input-group label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.input-group input {
+  font-size: 16px;
+  padding: 4px;
+}
+
+/* Value display styling - reuses font-family from portal.css */
+.value-display {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+/* Button styling */
+#buttons-row button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #9A1D51;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Status spans - reuses font-family from portal.css */
+#buttons-row span {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
