@@ -70,7 +70,7 @@ function saveRecordingToFile() {
     // Generate filename with timestamp
     const now = new Date();
     const timestamp = now.toISOString().replace(/[-:]/g, '').split('.')[0].replace('T', '_');
-    const filename = `gesture_${timestamp}.csv`;
+    const filename = `inter_portal_gesture_${timestamp}.csv`;
     
     // Create blob and download
     const blob = new Blob([csvContent], { type: 'text/csv' });
@@ -88,43 +88,23 @@ function saveRecordingToFile() {
 
 const ws = new WebSocket("ws://localhost:8765");
 
+// live sensor data is streamed into src1 ONLY!
 ws.onmessage = (event) => {
-    // Ignore WebSocket data if any playback is active
-    if ((window.playbackControllerSrc1 && window.playbackControllerSrc1.isPlaying()) ||
-        (window.playbackControllerSrc2 && window.playbackControllerSrc2.isPlaying())) {
+    // Ignore WebSocket data if src1 playback is active
+    if (window.playbackControllerSrc1 && window.playbackControllerSrc1.isPlaying()){
         return;
     }
     
     const data = JSON.parse(event.data);
-    // console.log("Encoder 1:", data.encoder_1);
-    // console.log("Encoder 2:", data.encoder_2);
 
     // Calculate x, y positions
     const r1 = parseFloat(data.encoder_1);
     const r2 = parseFloat(data.encoder_2);
     const { x, y } = calc_xy(r1, r2);
     
-    // Update global position for the sketch
-    window.portalPosition.x = x;
-    window.portalPosition.y = y;
-    
-    // Record data if recording is active
-    if (isRecording) {
-        const timestamp = (Date.now() - recordingStartTime) / 1000; // Time in seconds since recording started
-        recordedData.push({
-            time: timestamp,
-            encoder_1: data.encoder_1,
-            encoder_2: data.encoder_2,
-            x: x,
-            y: y
-        });
-    }
-    
-    // update UI
-    document.getElementById("enc1").innerText = data.encoder_1;
-    document.getElementById("enc2").innerText = data.encoder_2;
-    document.getElementById("x-pos").innerText = x.toFixed(3);
-    document.getElementById("y-pos").innerText = y.toFixed(3);
+    // Update position for src1
+    window.src1Position.x = x;
+    window.src1Position.y = y;
 };
 
 // Initialize playback controllers for src1 and src2
