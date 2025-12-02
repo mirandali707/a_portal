@@ -119,3 +119,20 @@ ol {
   white-space: nowrap;
 }
 
+.soft-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+.soft-wrapper::before {
+content: "";
+position: absolute;
+top: -20px;
+left: -20px;
+right: -20px;
+bottom: -20px;
+background: white;
+filter: blur(20px);
+z-index: -1;
+border-radius: 20px; /* optional */
+}

@@ -3,6 +3,11 @@ import {sketch} from 'p5js-wrapper';
 // Array to store the path positions
 let path = [];
 
+// Function to reset the path (exposed globally for simple_portal.js to call)
+window.resetPath = function() {
+  path = [];
+};
+
 sketch.setup = function(){
   const canvas = createCanvas(800, 600);
   canvas.parent('canvas-container');
@@ -33,8 +38,8 @@ sketch.draw= function(){
   
   // Draw the path (stroke)
   if (path.length > 1) {
-    stroke(16, 61, 70);
-    strokeWeight(2);
+    stroke(3, 25, 39);
+    strokeWeight(5);
     noFill();
     beginShape();
     for (let i = 0; i < path.length; i++) {
@@ -44,8 +49,8 @@ sketch.draw= function(){
   }
   
   // Draw the circle at current position
-  fill(16, 61, 70);
+  fill(31, 122, 140);
   noStroke();
-  circle(canvasX, canvasY, 50);
-  drawingContext.filter = 'blur(6px)';
+  circle(canvasX, canvasY, 24);
+  // drawingContext.filter = 'blur(6px)';
 }

@@ -28,7 +28,7 @@ recordBtn.addEventListener("click", () => {
     if (isRecording) {
         // Stop recording and save file
         isRecording = false;
-        recordBtn.textContent = "Start Recording";
+        recordBtn.textContent = ":: record ::";
         recordBtn.style.backgroundColor = "#9A1D51";
         recordStatus.textContent = "";
         
@@ -36,6 +36,10 @@ recordBtn.addEventListener("click", () => {
             saveRecordingToFile();
         }
         recordedData = [];
+        // // Reset the path when stopping recording
+        // if (window.resetPath) {
+        //     window.resetPath();
+        // }
     } else {
         // Stop playback if active
         if (isPlaying) {
@@ -45,9 +49,13 @@ recordBtn.addEventListener("click", () => {
         isRecording = true;
         recordingStartTime = Date.now();
         recordedData = [];
-        recordBtn.textContent = "Stop Recording";
+        recordBtn.textContent = "stop recording";
         recordBtn.style.backgroundColor = "#CE276D";
-        recordStatus.textContent = "Recording...";
+        recordStatus.textContent = "recording...";
+        // Reset the path when starting recording
+        if (window.resetPath) {
+            window.resetPath();
+        }
     }
 });
 
@@ -160,11 +168,15 @@ function stopPlayback() {
         cancelAnimationFrame(playbackAnimationFrame);
         playbackAnimationFrame = null;
     }
-    playbackBtn.textContent = "Start Playback";
+    playbackBtn.textContent = ":: playback ::";
     playbackBtn.style.backgroundColor = "#9A1D51";
     playbackStatus.textContent = "";
     currentPlaybackFile = null;
     playbackData = [];
+    // Reset the path when stopping playback
+    if (window.resetPath) {
+        window.resetPath();
+    }
 }
 
 // Function to start playback
@@ -177,7 +189,7 @@ function startPlayback(data, filename) {
     // Stop recording if active
     if (isRecording) {
         isRecording = false;
-        recordBtn.textContent = "Start Recording";
+        recordBtn.textContent = ":: record ::";
         recordBtn.style.backgroundColor = "#9A1D51";
         recordStatus.textContent = "";
         if (recordedData.length > 0) {
@@ -190,9 +202,14 @@ function startPlayback(data, filename) {
     playbackData = data;
     playbackStartTime = Date.now();
     currentPlaybackFile = filename;
-    playbackBtn.textContent = "Stop Playback";
+    playbackBtn.textContent = "stop playback";
     playbackBtn.style.backgroundColor = "#CE276D";
-    playbackStatus.textContent = `Playing: ${filename}`;
+    playbackStatus.textContent = `playing... ${filename}`;
+    
+    // Reset the path when starting playback
+    if (window.resetPath) {
+        window.resetPath();
+    }
     
     // Start playback loop
     function playbackLoop() {
