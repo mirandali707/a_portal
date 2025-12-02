@@ -21,7 +21,14 @@
       
       <!-- Two side-by-side sketches above main canvas -->
       <div id="sketches-container">
-        <div id="src1" class="soft-wrapper"></div>
+        <div class="sketch-wrapper">
+          <div class="playback-controls">
+            <input type="file" id="gesture-file-input-src1" accept=".csv" style="display: none;">
+            <button id="playback-btn-src1">:: play src 1 ::</button>
+            <span id="playback-status-src1"></span>
+          </div>
+          <div id="src1" class="soft-wrapper"></div>
+        </div>
         <div id="sliders-container">
           <div class="slider-group">
             <label for="enc_1">enc_1:</label>
@@ -32,7 +39,14 @@
             <input type="range" id="enc_2" min="0" max="100" value="0">
           </div>
         </div>
-        <div id="src2" class="soft-wrapper"></div>
+        <div class="sketch-wrapper">
+          <div class="playback-controls">
+            <input type="file" id="gesture-file-input-src2" accept=".csv" style="display: none;">
+            <button id="playback-btn-src2">:: play src 2 ::</button>
+            <span id="playback-status-src2"></span>
+          </div>
+          <div id="src2" class="soft-wrapper"></div>
+        </div>
       </div>
       
       <!-- Main canvas container -->
