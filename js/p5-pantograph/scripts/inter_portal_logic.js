@@ -156,6 +156,11 @@ window.playbackControllerSrc2 = createPlaybackController({
     }
 });
 
-// Initialize clear button
-createClearButton("clear-btn");
+// Initialize clear buttons for src1 and src2
+// Pass function names as strings so they're looked up at click time (when they're available)
+createClearButton("clear-btn-src1", "resetPath1");
+createClearButton("clear-btn-src2", "resetPath2");
+
+// // Initialize main clear button (if needed for main canvas)
+// createClearButton("clear-btn", "resetPath");
 

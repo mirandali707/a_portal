@@ -135,4 +135,5 @@ window.playbackController = createPlaybackController({
 });
 
 // Initialize clear button
-createClearButton("clear-btn");
+// Pass function name as string so it's looked up at click time (when it's available)
+createClearButton("clear-btn", "resetPath");
