@@ -46,7 +46,7 @@ body {
   min-height: 100vh;
   height: 100vh;
   overflow: hidden;
-  background: radial-gradient(circle at center, #e7d5d5, #ffffff);
+  background: radial-gradient(circle at center, #C5C7FF, #ffffff);
   background-size: 100% 100%;
   animation: gradientShift 12s ease infinite;
 }

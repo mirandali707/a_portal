@@ -1,7 +1,8 @@
 import {sketch} from 'p5js-wrapper';
 
 sketch.setup = function(){
-  createCanvas (800, 600);
+  const canvas = createCanvas(800, 600);
+  canvas.parent('canvas-container');
 }
 
 sketch.draw= function(){
