@@ -112,6 +112,11 @@ ol {
   font-family: 'Open Sans', sans-serif;
 }
 
+/* Clear button specific styling */
+#clear-btn {
+  background-color: #103D46!important;
+}
+
 /* Status spans - reuses font-family from portal.css */
 #buttons-row span {
   font-family: 'Open Sans', sans-serif;

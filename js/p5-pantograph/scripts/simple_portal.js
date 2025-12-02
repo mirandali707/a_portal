@@ -299,3 +299,13 @@ playbackBtn.addEventListener("click", () => {
     }
 });
 
+// Initialize clear button
+const clearBtn = document.getElementById("clear-btn");
+
+clearBtn.addEventListener("click", () => {
+    // Reset the path immediately
+    if (window.resetPath) {
+        window.resetPath();
+    }
+});
+
